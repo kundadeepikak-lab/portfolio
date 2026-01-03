@@ -1,65 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Kunda Deepika | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6fb;
+      color: #333;
+    }
+
+    header {
+      height: 100vh;
+      background: linear-gradient(120deg, #667eea, #764ba2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1100px;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin: 15px 0;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: white;
+      color: #764ba2;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Space because navbar is fixed */
+header {
+  padding-top: 80px;
+}
+
+/* MOBILE VIEW */
+@media(max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+    .hero-img {
+      flex: 1;
+      text-align: right;
+    }
+
+    .hero-img img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid white;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    section {
+      padding: 70px 10%;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+.education-item {
+  background: #f9f9ff;
+  padding: 25px;
+  border-left: 5px solid #667eea;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.education-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.edu-year {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.education-item h3 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+.edu-score {
+  font-weight: 600;
+  color: #444;
+}
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: #eef1ff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-5px);
+    }
+.project-card {
+  background: #f9f9ff;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+  border-left: 5px solid #667eea;
+}
+
+.project-card h3 {
+  color: #667eea;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.project-card p {
+  line-height: 1.7;
+  color: #444;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+    .project {
+      margin-bottom: 25px;
+    }
+.internship-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background: #f9f9ff;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  transition: all 0.3s ease;
+}
+
+.internship-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.internship-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.internship-content h3 {
+  margin-bottom: 5px;
+  color: #667eea;
+}
+
+.company {
+  font-weight: 600;
+}
+
+.duration {
+  font-size: 0.95rem;
+  color: #555;
+}
+.contact-info {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-card img {
+  width: 26px;
+  height: 26px;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Platform Colors */
+.linkedin {
+  background: #0077b5;
+}
+
+.github {
+  background: #24292e;
+}
+
+.hackerrank {
+  background: #2ec866;
+}
+
+/* Mobile friendly */
+@media(max-width: 768px) {
+  .social-card {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* Mobile responsive */
+@media(max-width: 768px) {
+  .internship-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .hero-img img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+<nav class="navbar">
+  <div class="nav-container">
+    <!-- LEFT : NAME -->
+    <div class="nav-logo">
+      Kunda Deepika
+    </div>
 
-    <!-- Header -->
-    <header>
-        <h1>Kunda Deepika</h1>
-        <p>Web Developer | Student</p>
-    </header>
+    <!-- MIDDLE : MENU -->
+    <ul class="nav-links">
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a passionate web developer learning HTML, CSS, and JavaScript.
-            I love building simple and clean websites.
-        </p>
-    </section>
+<header>
+  <div class="hero">
+    <div class="hero-text" data-aos="fade-right">
+      <h1>Kunda Deepika</h1>
+      <p>ECE Student | Web Developer</p>
+      <p>Creating user-friendly, clean & modern web experiences</p>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Git & GitHub</li>
-        </ul>
-    </section>
+    <div class="hero-img" data-aos="fade-left">
+      <!-- 🔴 Replace image path below -->
+      <img src="\images\photo.jpg" alt="Deepika Profile Photo">
+    </div>
+  </div>
+</header>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Portfolio Website</h3>
-            <p>Personal portfolio built using HTML, CSS, and JavaScript.</p>
-        </div>
-        <div class="project">
-            <h3>Voting Machine (Verilog)</h3>
-            <p>Biometric based voting machine implementation.</p>
-        </div>
-    </section>
+<section>
+  <div class="card" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I am an Electronics and Communication Engineering student with strong interest in web development.
+      I enjoy learning new technologies and building user-friendly applications with clean UI/UX.
+    </p>
+  </div>
+</section>
+<section id="education">
+  <div class="card" data-aos="fade-up">
+    <h2>Education</h2>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: kundadeepika.k@gmail.com</p>
-        <form action="https://formspree.io/f/xkoneeek" method="POST">
-        <input type="text" name="name" placeholder="Yours Name" required>
-        <input type="email" name="email" placeholder="Yours Message" required>
-        <textarea name="Message" rows="3" placeholder="Yours Message" required></textarea>        
-        <button type="submit" class="resume-btn">Send Message</button>
-        </form>
-        
-    </section>
+    <div class="education-item">
+      <span class="edu-year">2022 – Present</span>
+      <h3>B.Tech – Electronics & Communication Engineering</h3>
+      <p>Gouthami Institute of Technology and Management for Women</p>
+      <p class="edu-score">CGPA: 8.0</p>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="education-item">
+      <span class="edu-year">2020 – 2022</span>
+      <h3>Intermediate</h3>
+      <p>Vivekananda Junior College</p>
+      <p class="edu-score">Percentage: 85.60%</p>
+    </div>
+
+    <div class="education-item">
+      <span class="edu-year">2020</span>
+      <h3>SSC (State Board)</h3>
+      <p>Z.P. High School, Dommaranandyala</p>
+      <p class="edu-score">Percentage: 98%</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="card" data-aos="fade-right">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">C</div>
+      <div class="skill">Python</div>
+      <div class="skill">SQL</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+    </div>
+  </div>
+</section>
+<section id="projects">
+  <div class="card" data-aos="fade-up">
+    <h2>Projects</h2>
+
+    <!-- Project 1 -->
+    <div class="project-card" data-aos="zoom-in">
+      <h3>Personal Budget Management & Expense Analytics System</h3>
+      <p>
+        A modern and intuitive financial tracking solution that aggregates all personal
+        financial data into a single platform. The system offers budget-setting features,
+        spending alerts, trend visualizations, and personalized recommendations to help
+        users improve financial discipline and decision-making.
+      </p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" data-aos="zoom-in">
+      <h3>Student Portal Web Application (Python)</h3>
+      <p>
+        A comprehensive student portal web application developed using Python.
+        It acts as a centralized digital platform that enables students to manage
+        academic tasks online through a secure, efficient, and user-friendly interface,
+        providing easy access to essential academic services.
+      </p>
+    </div>
+
+  </div>
+</section>
+<section id="internships">
+  <div class="card" data-aos="fade-up">
+    <h2>Internships</h2>
+
+    <!-- Internship 1 -->
+    <div class="internship-card" data-aos="fade-right">
+      <img src="https://media.glassdoor.com/sqll/7391465/1stop-innovation-squarelogo-1658381108762.png" alt="1Stop.ai Logo" class="internship-logo">
+
+      <div class="internship-content">
+        <h3>Web Development Intern</h3>
+        <p class="company">1Stop.ai</p>
+        <p class="duration">Duration: 4 Months</p>
+      </div>
+    </div>
+
+    <!-- Internship 2 -->
+    <div class="internship-card" data-aos="fade-left">
+      <img src="data:image/jpeg;base64,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yupjbHDK2w7x11K6xu6InvN8PeHXpurGp52yND2EOaRcEbqC4ow52BM0IvHuPJ+PotPDvHXUrrOu6InvN8PeHXpuqrK1atcOSGq2VEtuzgspF5087ZGh7CHNIuCN16KE9MIiIAiIgCIsOcACSbAaknZAHOABJNgNSTsoBijERnJihNohzPn/AB6JijERnJihNohzPn/HputfDnAXVTszrtiB1Pm90fc7K2qpVrXM86++VstusYc4C6qdmddsQOp83uj7lWLBC1jQxgDWgWAGyQQtY0MYA1oFgBsvtT22ux5KqKFVHyERFkbhERAEREAREQBERAEREAREQBERAYc0EWOoUCxRh0wkzQi8e48n4+inyw4Aix1C0rscHlGN1MbY4ZW2HeOupXWdd0RPeb4e8OvTdWNTztkaHsIc0i4I3UFxRhwwkzQi8e48n4+i08O8ddSus67oie83w94dem6qsrVsdcOSKq2VEtuzj9+xZSLzp52yND2EOaRcEbr0UJ6YRFh7gASTYDUk7IA9wAJJsBqSdlAMT4iM5MURtEOZ8/49ExRiIzkxQm0Q5nz/AI9Fr4c4C6qdmddsQOp83uj7nZW1VKta5nm33ytlt1jDnAXVTszrtiB1Pm90fc7KxYIWsaGMAa0CwA2SCFrGhjAGtAsANl9qe212MroojUvIREWRuEREAREQBERAEREAREQBERAEREAREQBERAYcARY6hQLFGHDCTNCLx7jyfj6KfLDmgix1C0rsdbyjG6mNscMrbDvHXUrspu6InvN8PeHXpurFpalkrQ+Nwc07j/8AafBQvEGFHtJkphmadSwc2/DxHTmo1HLJE45XOjdvYlp+e6rlXC71RfchhdZ0/pmsotuWRrAXOIaBzJNgPmoFifERnJihNohzPn/HouFPVSSW7R7n+GZxd9LldzgWF5ZiHTAxx9dHO6AbfEpGmFXqmxPqJ3+iCPDDnAXVLszrtiB1Pm90fc7KxYIWsaGMAa0CwA2SCFrGhjAGtAsANl9qW212MtoojUvIREWRuEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBRfGXIIi0p/mYdT/WzTwf7amiIur/5nPS/1hERYlIREQBERAEREAREQBERAEREB/9k=" alt="Nexthub Technologies Logo" class="internship-logo">
+
+      <div class="internship-content">
+        <h3>Internet of Things (IoT) Intern</h3>
+        <p class="company">Nexthub Technologies</p>
+        <p class="duration">Duration: 3 Months</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  
+<section id="contact">
+  <div class="card" data-aos="fade-up">
+    <h2>Contact</h2>
+
+    <div class="contact-info">
+      <p>📧 <strong>Email:</strong> kundadeepika.k@gmail.com</p>
+      <p>📞 <strong>Phone:</strong> 9705894584</p>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/kunda-deepika-1a350b351/" target="_blank" class="social-card linkedin">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+        <span>LinkedIn</span>
+      </a>
+
+      <a href="https://github.com/" target="_blank" class="social-card github">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+        <span>GitHub</span>
+      </a>
+
+      <a href="https://www.hackerrank.com/profile/kundadeepika_k" target="_blank" class="social-card hackerrank">
+        <img src="data:image/webp;base64,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" alt="HackerRank">
+        <span>HackerRank</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  © 2026 | Kunda Deepika
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
 </body>
 </html>
-
